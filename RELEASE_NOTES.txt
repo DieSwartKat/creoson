@@ -1,6 +1,9 @@
 R E L E A S E   N O T E S
 =========================
 
+3.0.2
+	- Made compatible with Creo 13 by changing the embedded JRE to Java 25.
+
 3.0.1
 	- Modified functions:
 		feature

@@ -95,12 +95,12 @@ public class CallExportInstructions {
 	public static CallExportInstructions createProductViewExport(ProductViewFormat format) throws jxthrowable {
         if (NitroConstants.DEBUG_JLINK) DebugLogging.sendTimerMessage("pfcExport,ProductViewExportInstructions_Create", 0, NitroConstants.DEBUG_JLINK_KEY);
         ProductViewExportInstructions pxi = pfcExport.ProductViewExportInstructions_Create();
+		if (pxi==null)
+			return null;
         if (NitroConstants.DEBUG_JLINK) DebugLogging.sendTimerMessage("pfcExport,ProductViewExportOptions_Create", 0, NitroConstants.DEBUG_JLINK_KEY);
         ProductViewExportOptions opt = pfcExport.ProductViewExportOptions_Create(format);
         if (NitroConstants.DEBUG_JLINK) DebugLogging.sendTimerMessage("ProductViewExportInstructions,SetPVExportOptions", 0, NitroConstants.DEBUG_JLINK_KEY);
         pxi.SetPVExportOptions(opt);
-		if (pxi==null)
-			return null;
 		return new CallExportInstructions(pxi);
 	}
 	

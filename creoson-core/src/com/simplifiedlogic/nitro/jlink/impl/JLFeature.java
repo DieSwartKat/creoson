@@ -271,7 +271,7 @@ public class JLFeature implements IJLFeature {
     		if (groupPattern!=null) {
     			CallFeatures feats = null;
     			try {
-    				groupPattern.listFeatMembers(); 
+    				feats = groupPattern.listFeatMembers(); 
     			}
     			catch (XToolkitNotFound e) {
     				feats = null;

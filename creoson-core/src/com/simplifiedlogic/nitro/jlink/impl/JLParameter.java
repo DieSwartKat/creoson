@@ -378,9 +378,9 @@ public class JLParameter implements IJLParameter {
 	        CallModel m = JlinkUtils.getFile(session, filename, true);
 
 	        BasicListLooper looper = new BasicListLooper();
-	        if (paramName==null)
-	        	looper.setNamePattern(null);
-	        else
+//	        if (paramName==null)
+//	        	looper.setNamePattern(null);
+//	        else
 	        	looper.setNamePattern(paramName);
 	        looper.loop(m);
 
