@@ -1,0 +1,6 @@
+set PROE_COMMON=%CREO_COMMON_FILES%
+set PROE_ENV=x86e_win64
+
+set JAVA_HOME=jre
+
+set JSON_PORT=9056

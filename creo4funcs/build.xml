@@ -3,7 +3,7 @@
 	<property file="${basedir}/../build_vars.properties" />
 	<property name="source_dir" value="${basedir}/src" />
 	<property name="class_dir" value="${basedir}/classes" />
-	<property name="build.compiler" value="javac1.5" />
+	<property name="build.compiler" value="modern" />
 	<property name="jar_ver" value="1.7.1" />
 
 	<target name="clean">
@@ -12,7 +12,7 @@
 	</target>
 
 	<target name="compile" depends="clean">
-		<javac compiler="${build.compiler}" source="1.5" debug="true" debuglevel="lines,vars,source" srcdir="${source_dir}" destdir="${class_dir}">
+		<javac compiler="${build.compiler}" source="1.8" target="1.8" includeantruntime="false" debug="true" debuglevel="lines,vars,source" srcdir="${source_dir}" destdir="${class_dir}">
     		<classpath>
 				<path>
 	    			<fileset dir="${creo_4_common_dir}/text/java">

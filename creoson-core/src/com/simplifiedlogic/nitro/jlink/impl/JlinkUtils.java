@@ -294,6 +294,10 @@ public class JlinkUtils {
         catch (XToolkitInvalidName jxe) {
             throw new JLIException("Unable to change to directory " + dir);
         }
+        catch (jxthrowable jxe) {
+            // Convert other toolkit exceptions into a JLIException with a helpful message
+            throw createException(jxe, "Unable to change to directory " + dir);
+        }
     }
     
     /**

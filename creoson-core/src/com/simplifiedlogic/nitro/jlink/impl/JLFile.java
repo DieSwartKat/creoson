@@ -568,11 +568,20 @@ public class JLFile implements IJLFile {
 	        // rename the disk file if and only if the file is in the current directory
 	        boolean changedir=false;
 	        String curdir = session.getCurrentDirectory();
-	        if (onlyInSession) {
-	        	// we're doing this because creo renames it on disk anyway, if you're in the model's working dir already
-	            JlinkUtils.changeDirectory(session, System.getProperty("java.io.tmpdir"));
-	            changedir=true;
-	        }
+			if (onlyInSession) {
+				// we're doing this because creo renames it on disk anyway, if you're in the model's working dir already
+				String tmpdir = System.getProperty("java.io.tmpdir");
+				try {
+					JlinkUtils.changeDirectory(session, tmpdir);
+					changedir = true;
+				}
+				catch (jxthrowable e) {
+					// Log the failure and continue without changing directory so we don't
+					// convert a low-level toolkit error into the generic Pro/TOOLKIT message.
+					DebugLogging.sendDebugMessage("file.rename: changeDirectory to tmpdir failed: " + e.getMessage(), NitroConstants.DEBUG_KEY);
+					// do not set changedir; leave session directory unchanged
+				}
+			}
 	        else {
 	            if (!NitroUtils.compareDirNames(curdir, pathdir)) {
 	                JlinkUtils.changeDirectory(session, pathdir);
